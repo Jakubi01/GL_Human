@@ -393,8 +393,6 @@ void AnimationTimer(int value)
 	{
 		return;
 	}
-
-	// TODO : 각 Bone의 회전 변환이 부자연스러움
 	
 	// 각도 변경
 	animation_angle += static_cast<GLfloat>(animation_direction) * 2.f;
