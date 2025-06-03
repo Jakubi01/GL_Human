@@ -1,0 +1,98 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\OpenGL\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\Custom.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|solutionrelative:OpenGL\\Custom.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\GL_origin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|solutionrelative:OpenGL\\GL_origin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GL_origin.cpp",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\GL_origin.cpp",
+              "RelativeDocumentMoniker": "OpenGL\\GL_origin.cpp",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\GL_origin.cpp",
+              "RelativeToolTip": "OpenGL\\GL_origin.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-29T09:08:41.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Custom.cpp",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\Custom.cpp",
+              "RelativeDocumentMoniker": "OpenGL\\Custom.cpp",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\Custom.cpp",
+              "RelativeToolTip": "OpenGL\\Custom.cpp",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAAALAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-29T08:01:27.476Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
