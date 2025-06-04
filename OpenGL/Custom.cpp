@@ -438,6 +438,7 @@ void SmoothCameraTransition(int value)
 	{
 		if (current_camera_position.GetTargetPos() == camera_position_TopView)
 		{
+			AnimationSpeed = 0.001f;
 			current_camera_position.SetTargetPos(camera_position_FullBodyView);
 			glutTimerFunc(10, SmoothCameraTransition, 10);
 		}
@@ -445,6 +446,7 @@ void SmoothCameraTransition(int value)
 		if (current_camera_position.GetPos() == camera_position_FullBodyView)
 		{
 			bShouldMoveToTopView = false;
+			AnimationSpeed = 0.001f;
 			current_camera_position.SetTargetPos(camera_position_TopView);
 			glutTimerFunc(10, SmoothCameraTransition, 10);
 		}

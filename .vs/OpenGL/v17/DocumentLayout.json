@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\Custom.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|solutionrelative:OpenGL\\Custom.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\GL_origin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8DA74882-2BBA-47A8-97E6-2BC9167673B8}|OpenGL\\OpenGL.vcxproj|solutionrelative:OpenGL\\GL_origin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 11,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GL_origin.cpp",
-              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\GL_origin.cpp",
-              "RelativeDocumentMoniker": "OpenGL\\GL_origin.cpp",
-              "ToolTip": "C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\GL_origin.cpp",
-              "RelativeToolTip": "OpenGL\\GL_origin.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-29T09:08:41.225Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -85,7 +68,7 @@
               "RelativeDocumentMoniker": "OpenGL\\Custom.cpp",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\OpenGL\\OpenGL\\Custom.cpp",
               "RelativeToolTip": "OpenGL\\Custom.cpp",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAAALAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAMIBAAAAAAAAAAAAAM4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-29T08:01:27.476Z",
               "EditorCaption": ""

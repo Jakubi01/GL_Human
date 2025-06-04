@@ -1,0 +1,15 @@
+﻿Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutReshapeFunc
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glutCreateWindowWithExit
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutMouseFunc
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp___glutInitWithExit
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutWireSphere
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutPostRedisplay
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutWireCube
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutInitDisplayMode
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutTimerFunc
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutDisplayFunc
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutMainLoop
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutInitWindowPosition
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutInitWindowSize
+Custom.obj : error LNK2001: 확인할 수 없는 외부 기호 __imp_glutSwapBuffers
+C:\Users\USER\source\repos\OpenGL\x64\Release\OpenGL.exe : fatal error LNK1120: 14개의 확인할 수 없는 외부 참조입니다.
