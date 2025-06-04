@@ -1,5 +1,6 @@
 ﻿#include <GL/glut.h>
-#include <math.h>
+#include <cmath>
+#include <cstdio>
 
 constexpr int window_width = 800;
 constexpr int window_height = 600;
@@ -40,6 +41,16 @@ struct GLfloat3
 
 	GLfloat3 GetTargetPos() const { return GLfloat3(target_pos_x, target_pos_y, target_pos_z); }
 	GLfloat3 GetPos() const {return GLfloat3(x, y, z);}
+
+	bool IsNearlyEqual(const GLfloat3 Other) const
+	{
+		return x - Other.x < 0.1f && y - Other.y < 0.1f && z - Other.z < 0.1f;
+	}
+
+	bool operator == (const GLfloat3 Other) const
+	{
+		return IsNearlyEqual(Other);
+	}
 	
 	mutable GLfloat x, y, z;
 	mutable GLfloat target_pos_x, target_pos_y, target_pos_z;
@@ -64,26 +75,29 @@ constexpr int pose_num_max = 4;
 
 // 애니메이션
 UINT8 bShouldPlayAnimation = false;
+UINT8 bShouldMoveToTopView = false;
+float AnimationSpeed = 0.05f;
 
 GLfloat animation_angle = 0.f;
 GLint animation_direction = 1;
 
 // 포즈 별 카메라 위치
-const GLfloat3 camera_position_FullBody(0.f, 0.f, 8.f);
-const GLfloat3 camera_position_Tpose(0.f, 0.f, 4.f);
-const GLfloat3 camera_position_Apose(5.f, 2.f, 4.f);
-const GLfloat3 camera_position_Bpose(-2.f, 5.f, 4.f);
-const GLfloat3 camera_position_Cpose(-5.f, 5.f, 4.f);
-const GLfloat3 camera_position_Dpose(1.f, 5.f, 4.f);
+const GLfloat3 camera_position_FullBodyView(0.f, 0.f, 8.f);
+const GLfloat3 camera_position_closeView(0.f, 0.f, 4.f);
+const GLfloat3 camera_position_Left_SideView(5.f, 2.f, 4.f);
+const GLfloat3 camera_position_Right_SideView(-4.f, 2.f, 4.f);
+const GLfloat3 camera_position_TopView(0.f, 6.f, 0.f);
+const GLfloat3 camera_position_Back_TopView(0.f, 5.f, -4.f);
 
 // 현재 카메라 위치
-GLfloat3 current_camera_position = camera_position_FullBody;
+GLfloat3 current_camera_position = camera_position_FullBodyView;
 
 // 보는 방향, 시선이 보는 목적 지점
 constexpr GLfloat camera_center_x = 0, camera_center_y = -1, camera_center_z = 0;
 
 // 카메라 방향
 constexpr GLfloat camera_up_x = 0, camera_up_y = 1, camera_up_z = 0;
+
 
 
 
@@ -188,6 +202,7 @@ void drawLeftLowerArm(const GLfloat angle)
 void drawLeftHand()
 {
 	glTranslatef(0.35f, 0.f, 0.f); // X 축 방향으로 이동
+	glRotatef(90.f, 1.f, 0.f, 0.f);
 	glutWireSphere(0.1, 15, 15);
 
 	// finger 1
@@ -288,6 +303,7 @@ void drawRightLowerArm(const GLfloat angle)
 void drawRightHand()
 {
 	glTranslatef(-0.35f, 0.f, 0.f); // 오른손 위치
+	glRotatef(90.f, 1.f, 0.f, 0.f);
 	glutWireSphere(0.1, 15, 15);
 
 	// finger 1
@@ -418,6 +434,27 @@ void AnimationTimer(int value)
 
 void SmoothCameraTransition(int value)
 {
+	if (bShouldMoveToTopView)
+	{
+		if (current_camera_position.GetTargetPos() == camera_position_TopView)
+		{
+			current_camera_position.SetTargetPos(camera_position_FullBodyView);
+			glutTimerFunc(10, SmoothCameraTransition, 10);
+		}
+
+		if (current_camera_position.GetPos() == camera_position_FullBodyView)
+		{
+			bShouldMoveToTopView = false;
+			current_camera_position.SetTargetPos(camera_position_TopView);
+			glutTimerFunc(10, SmoothCameraTransition, 10);
+		}
+	}
+
+	if (current_camera_position.GetTargetPos() == camera_position_Back_TopView)
+	{
+		AnimationSpeed = 0.01f;
+	}
+	
 	current_camera_position.MoveToTargetPos(0.05f); // 부드럽게 이동
 
 	glutPostRedisplay(); // 장면 다시 그리기
@@ -430,6 +467,10 @@ void SmoothCameraTransition(int value)
 	{
 		glutTimerFunc(16, SmoothCameraTransition, 1); // 60fps 정도
 	}
+	else
+	{
+		AnimationSpeed = 0.05f;
+	}
 }
 
 void ChangePose(int value)
@@ -437,24 +478,25 @@ void ChangePose(int value)
 	switch (value)
 	{
 	case 0:
-		current_camera_position.SetTargetPos(camera_position_Apose);
+		current_camera_position.SetTargetPos(camera_position_Left_SideView);
 		glutTimerFunc(16, SmoothCameraTransition, 1);
 		break;
 	case 1:
-		current_camera_position.SetTargetPos(camera_position_Bpose);
+		current_camera_position.SetTargetPos(camera_position_Right_SideView);
 		glutTimerFunc(16, SmoothCameraTransition, 1);
 		break;
 	case 2:
-		current_camera_position.SetTargetPos(camera_position_Cpose);
+		current_camera_position.SetTargetPos(camera_position_TopView);
+		bShouldMoveToTopView = true;
 		glutTimerFunc(16, SmoothCameraTransition, 1);
 		break;
 	case 3:
-		current_camera_position.SetTargetPos(camera_position_Dpose);
+		current_camera_position.SetTargetPos(camera_position_Back_TopView);
 		glutTimerFunc(16, SmoothCameraTransition, 1);
 		break;
 	case 5:
 		bShouldPlayAnimation = true;
-		current_camera_position.SetTargetPos(camera_position_Tpose);
+		current_camera_position.SetTargetPos(camera_position_closeView);
 		glutTimerFunc(16, SmoothCameraTransition, 1);
 		break;
 	default:
