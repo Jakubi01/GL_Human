@@ -174,7 +174,7 @@ void drawCuboid(const GLfloat sx, const GLfloat sy, const GLfloat sz)
 
 void drawHead()
 {
-	glutWireSphere(0.2, 15, 15);
+	drawCuboid(0.36f, 0.36f, 0.36f);
 	glTranslatef(0.f, -0.7f, 0.f); // y 축 방향으로 이동
 }
 
@@ -378,12 +378,43 @@ void drawRightBody()
 	glPopMatrix();
 }
 
+void set_light() {
+	// 빛의 색상 & 위치 정의
+	GLfloat light_global_ambient[] = { 1.f, 1.f, 1.f, 1.0 }; // 주변광
+	GLfloat light_0_pos[] = { 2.0, 2.0, 5.0, 1.0 };				// 빛 추가
+	GLfloat light_0_ambient[] = { 1.0, 1.0, 1.0, 1.0 };			// 주변광
+	GLfloat light_0_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };			// 반사광, 난반사
+	GLfloat light_0_specular[] = { 1.0, 1.0, 1.0, 1.0 };		// 거울반사
+
+	// 빛 활성화, 빛 색상 & 위치 적용
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, light_global_ambient);
+	glEnable(GL_LIGHT0);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, light_0_ambient);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_0_diffuse);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, light_0_specular);
+	glLightfv(GL_LIGHT0, GL_POSITION, light_0_pos);
+}
+
+void set_material_color() {
+	// 물체의 색상 & 지정 정의
+	glDisable(GL_COLOR_MATERIAL);
+
+	GLfloat matrial_0_ambient[] = { 0.3f, 0.3f, 0.3f, 1.0f };	// 주변광
+	GLfloat matrial_0_diffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };	// 반사광, 난반사
+	GLfloat matrial_0_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };	// 거울반사
+	GLfloat matrial_0_shiness[] = { 25.0f };					// 얼마나 반짝이는가 0~128
+	
+	glLightfv(GL_LIGHT0, GL_AMBIENT, matrial_0_ambient);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, matrial_0_diffuse);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, matrial_0_specular);
+	glLightfv(GL_LIGHT0, GL_POSITION, matrial_0_shiness); 
+}
 
 #pragma endregion
 
 void display()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -534,7 +565,19 @@ void MousePressed(int btn, int state, int x, int y)
 
 void init()
 {
-	glClearColor(0.f, 0.f, 0.45f, 1.f); // Set background color
+	glClearColor(0.f, 0.f, 0.f, 0.f); // Set background color
+}
+
+void init_light() 
+{
+	glEnable(GL_LIGHTING);
+	glShadeModel(GL_SMOOTH);
+	glEnable(GL_DEPTH_TEST);
+
+	glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+
+	set_light();
+	set_material_color();
 }
 
 int main(int argc, char** argv)
@@ -546,6 +589,7 @@ int main(int argc, char** argv)
 	glutCreateWindow("Pose Simulation");
 
 	init();
+	init_light();
 
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
